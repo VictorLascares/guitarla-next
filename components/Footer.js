@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import styles from "../styles/Footer.module.css"
 
 const Footer = () => {
+    const [year, setYear] = useState(0)
+
+    useEffect(() => {
+        const currentYear = new Date().getFullYear();
+        setYear(currentYear);
+    }, [])
+    
+
     return (
         <footer className={styles.footer}>
             <div className={`contenedor ${styles.contenido}`}>
@@ -12,7 +21,7 @@ const Footer = () => {
                     <Link href="/tienda">Tienda</Link>
                 </nav>
 
-                <p>Todos los derechos reservados &copy; {new Date().getFullYear()}</p>
+                <p>Todos los derechos reservados &copy; {year}</p>
             </div>
         </footer>
     )
