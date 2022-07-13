@@ -7,7 +7,7 @@ const BlogInput = ({result}) => {
     )
 }
 export async function getStaticProps({params : { id }}) {
-    const url = `http://localhost:1337/api/blogs/${id}?populate=*`
+    const url = `${process.env.API_URL}/blogs/${id}?populate=*`
     const response = await fetch(url)
     const result = await response.json();
 
@@ -19,7 +19,7 @@ export async function getStaticProps({params : { id }}) {
 }
 
 export async function getStaticPaths() {
-    const url = 'http://localhost:1337/api/blogs'
+    const url = `${process.env.API_URL}/blogs`
     const response = await fetch(url)
     const result = await response.json()
     const paths = result.data.map(entrada => ({
