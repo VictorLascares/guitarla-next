@@ -3,7 +3,6 @@ import Input from "../components/Input";
 import styles from "../styles/Blog.module.css"
 
 const blog = ({inputs}) => {
-    console.log();
     return (
         <Layout
             pagina='Blog'

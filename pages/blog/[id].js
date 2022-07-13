@@ -1,9 +1,22 @@
-import { useRouter } from "next/router"
+import Layout from "../../components/Layout";
+import Image from "next/image";
+import { formatDate } from "../../helpers";
 
 const BlogInput = ({result}) => {
-    const router = useRouter();
+    const { titulo, contenido, imagen, createdAt } = result.data.attributes
     return (
-        <div>Desde Entrada Blog</div>
+        <Layout>
+            <main className="contenedor">
+                <h1 className="heading">{titulo}</h1>
+                <article>
+                    <Image layout="responsive" width={800} height={600} src={imagen.data.attributes.url} alt={`Imagen entrada ${titulo}`}/>
+                    <div>
+                        <p>{formatDate(createdAt)}</p>
+                        <p>{contenido}</p>
+                    </div>
+                </article>
+            </main>
+        </Layout>
     )
 }
 export async function getStaticProps({params : { id }}) {
