@@ -1,0 +1,22 @@
+.no_encontrado {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no_encontrado a {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0;
+    transition: all .5s;
+}
+
+.no_encontrado a:hover {
+    background-color: var(--primary);
+    color: var(--negro);
+}
