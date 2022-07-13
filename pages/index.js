@@ -11,8 +11,3 @@ export default function Home() {
         </Layout>
     )
 }
-
-
-
-//             <h1 className='heading'>Desde inicio</h1>
-//             <Link href='/nosotros'>Nosotros</Link>

@@ -1,0 +1,64 @@
+.entrada {
+    border: 2px solid rgb(209, 209, 209);
+    position: relative;
+}
+
+.contenido {
+    padding: 2rem;
+}
+
+.contenido h3 {
+    font-weight: 400;
+    font-size: 2.8rem;
+    margin: 0;
+    line-height: 1.2;
+}
+.fecha {
+    font-size: 1.6rem;
+    color: var(--primary);
+}
+
+.resumen {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-align: justify;
+}
+.enlace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px){
+    .enlace {
+        background-color: rgba(0,0,0,50%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+    .enlace:hover {
+        opacity: 1;
+    }
+}
+.enlace a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 1.2rem 1rem;
+    color: var(--negro);
+    background-color: var(--primary);
+    transition: filter .5s;
+}
+
+.enlace a:hover {
+    filter: brightness(85%);
+}

@@ -1,5 +1,6 @@
 import Layout from "../components/Layout"
 import Input from "../components/Input";
+import styles from "../styles/Blog.module.css"
 
 const blog = ({inputs}) => {
     console.log();
@@ -9,7 +10,7 @@ const blog = ({inputs}) => {
         >
             <main className="contenedor">
                 <h2 className="heading">Blog</h2>
-                <div>
+                <div className={styles.blog}>
                     {inputs.data.map(entrada => (
                         <Input 
                             key={entrada.id}
