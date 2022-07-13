@@ -3,6 +3,11 @@
     position: relative;
 }
 
+.entrada_blog {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 .contenido {
     padding: 2rem;
 }
@@ -12,6 +17,10 @@
     font-size: 2.8rem;
     margin: 0;
     line-height: 1.2;
+}
+
+.contenido:last-child {
+    white-space: pre-wrap;
 }
 .fecha {
     font-size: 1.6rem;

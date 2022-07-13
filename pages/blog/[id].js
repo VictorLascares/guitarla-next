@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout";
 import Image from "next/image";
 import { formatDate } from "../../helpers";
+import styles from "../../styles/Input.module.css"
 
 const BlogInput = ({result}) => {
     const { titulo, contenido, imagen, createdAt } = result.data.attributes
@@ -8,10 +9,10 @@ const BlogInput = ({result}) => {
         <Layout>
             <main className="contenedor">
                 <h1 className="heading">{titulo}</h1>
-                <article>
+                <article className={styles.entrada_blog}>
                     <Image layout="responsive" width={800} height={600} src={imagen.data.attributes.url} alt={`Imagen entrada ${titulo}`}/>
-                    <div>
-                        <p>{formatDate(createdAt)}</p>
+                    <div className={styles.contenido}>
+                        <p className={styles.fecha}>{formatDate(createdAt)}</p>
                         <p>{contenido}</p>
                     </div>
                 </article>
