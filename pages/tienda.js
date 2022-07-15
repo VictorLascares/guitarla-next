@@ -1,3 +1,4 @@
+import styles from '../styles/Tienda.module.css'
 import Layout from "../components/Layout"
 import Guitar from "../components/Guitar";
 
@@ -9,7 +10,7 @@ const tienda = ({ guitars }) => {
         >
             <main className="contenedor">
                 <h1 className="heading">Nuestra Colección</h1>
-                <div>
+                <div className={styles.listado}>
                     {guitars.map(guitar => (
                         <Guitar 
                             key={guitar.id}

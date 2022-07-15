@@ -37,7 +37,7 @@
     text-transform: uppercase;
     font-weight: 700;
     transition-property: color;
-    transition-duration: .5s;
+    transition-duration: .3s;
 }
 
 .navegacion a:hover {

@@ -34,7 +34,7 @@
     font-weight: 700;
     text-transform: uppercase;
     transition-property: color;
-    transition-duration: .5s;
+    transition-duration: .3s;
 }
 .navegacion a:hover {
     color: var(--primary);

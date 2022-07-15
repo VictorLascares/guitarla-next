@@ -65,7 +65,7 @@
     padding: 1.2rem 1rem;
     color: var(--negro);
     background-color: var(--primary);
-    transition: filter .5s;
+    transition: filter .3s;
 }
 
 .enlace a:hover {
