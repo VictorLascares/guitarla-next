@@ -23,7 +23,7 @@ const blog = ({inputs}) => {
 }
 
 export async function getServerSideProps() {
-    const url = `${process.env.API_URL}/blogs?populate=*`;
+    const url = `${process.env.API_URL}/blogs?populate=imagen`;
     const response = await fetch(url);
     const inputs = await response.json();
     return {

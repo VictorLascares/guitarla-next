@@ -4,7 +4,7 @@ import Image from "next/image"
 import styles from '../styles/Input.module.css'
 
 const Input = ({entrada}) => {
-    const { titulo, resumen, imagen, createdAt } = entrada.attributes
+    const { titulo, resumen, imagen, createdAt, url } = entrada.attributes
 
     return (
         <article className={styles.entrada}>
@@ -14,7 +14,7 @@ const Input = ({entrada}) => {
                 <p className={styles.fecha}>{formatDate(createdAt)}</p>
                 <p className={styles.resumen}>{resumen}</p>
                 <div className={styles.enlace}>
-                    <Link href={`/blog/${entrada.id}`}>Leer entrada</Link>
+                    <Link href={`/blog/${url}`}>Leer entrada</Link>
                 </div>
             </div>
         </article>

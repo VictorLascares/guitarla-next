@@ -3,10 +3,12 @@ import Image from "next/image";
 import { formatDate } from "../../helpers";
 import styles from "../../styles/Input.module.css"
 
-const BlogInput = ({result}) => {
-    const { titulo, contenido, imagen, createdAt } = result.data.attributes
+const BlogInput = ({ent}) => {
+    const { titulo, contenido, imagen, createdAt } = ent.attributes
     return (
-        <Layout>
+        <Layout
+            pagina={titulo}
+        >
             <main className="contenedor">
                 <h1 className="heading">{titulo}</h1>
                 <article className={styles.entrada_blog}>
@@ -20,35 +22,34 @@ const BlogInput = ({result}) => {
         </Layout>
     )
 }
-export async function getStaticProps({params : { id }}) {
-    const url = `${process.env.API_URL}/blogs/${id}?populate=*`
-    const response = await fetch(url)
-    const result = await response.json();
-
-    return {
-        props: {
-            result,
-        }
-    }
-}
-
 export async function getStaticPaths() {
-    const url = `${process.env.API_URL}/blogs`
+    const url = `${process.env.API_URL}/blogs?populate=imagen`
     const response = await fetch(url)
     const result = await response.json()
-    const paths = result.data.map(entrada => ({
-        params: {
-            id: entrada.id.toString()
-        }
+    const ent = (result.data)
+    const paths = ent.map(entrada => ({
+        params: {url: entrada.attributes.url}
     }))
     return {
         paths,
         fallback: false
     }
 }
+export async function getStaticProps({params : { url }}) {
+    const urlB = `${process.env.API_URL}/blogs?populate=imagen&filters[url][$eq]=${url}`
+    const response = await fetch(urlB)
+    const result = await response.json();
+    const ent = result.data[0]
+    return {
+        props: {
+            ent,
+        }
+    }
+}
+
 
 // export async function getServerSideProps({query : { id }}) {
-//     const url = `http://localhost:1337/api/blogs/${id}?populate=*`
+//     const url = `http://localhost:1337/api/blogs/${id}?populate=imagen`
 //     const response = await fetch(url)
 //     const result = await response.json();
 

@@ -6,7 +6,7 @@ const Layout = ({children, pagina}) => {
     return (
         <>
             <Head>
-                <title>GuitarLA</title>
+                <title>GuitarLA{pagina? ` - ${pagina}` : ''}</title>
                 <meta name="description" content="Sitio Web de Venta de Guitarras" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
