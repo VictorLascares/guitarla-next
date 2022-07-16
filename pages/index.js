@@ -1,9 +1,9 @@
 import styles from '../styles/Tienda.module.css'
 import Layout from '../components/Layout'
 import Guitar from '../components/Guitar';
+import Course from '../components/Course';
 
-export default function Home({guitars, curso}) {
-    console.log(curso);
+export default function Home({guitars, course}) {
     return (
         <Layout
             pagina={'Inicio'}
@@ -19,6 +19,10 @@ export default function Home({guitars, curso}) {
                     ))}
                 </div>
             </main>
+
+            <Course 
+                course={course}
+            />
         </Layout>
     )
 }
@@ -31,7 +35,7 @@ export async function getServerSideProps() {
         fetch(courseUrl)
     ])
 
-    const [guitars, curso] = await Promise.all([
+    const [guitars, course] = await Promise.all([
         resGuitarras.json(),
         resCursos.json()
     ])
@@ -39,7 +43,7 @@ export async function getServerSideProps() {
     return {
         props: {
             guitars: guitars.data,
-            curso: curso.data
+            course: course.data
         }
     }
 }
