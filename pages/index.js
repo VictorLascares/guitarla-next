@@ -2,7 +2,8 @@ import styles from '../styles/Tienda.module.css'
 import Layout from '../components/Layout'
 import Guitar from '../components/Guitar';
 
-export default function Home({guitars}) {
+export default function Home({guitars, curso}) {
+    console.log(curso);
     return (
         <Layout
             pagina={'Inicio'}
@@ -23,12 +24,22 @@ export default function Home({guitars}) {
 }
 
 export async function getServerSideProps() {
-    const url = `${process.env.API_URL}/guitarras?populate=imagen`;
-    const response = await fetch(url);
-    const guitars = await response.json();
+    const guitarsUrl = `${process.env.API_URL}/guitarras?populate=imagen`;
+    const courseUrl = `${process.env.API_URL}/curso?populate=imagen`;
+    const [resGuitarras, resCursos] = await Promise.all([
+        fetch(guitarsUrl),
+        fetch(courseUrl)
+    ])
+
+    const [guitars, curso] = await Promise.all([
+        resGuitarras.json(),
+        resCursos.json()
+    ])
+
     return {
         props: {
-            guitars: guitars.data
+            guitars: guitars.data,
+            curso: curso.data
         }
     }
 }
