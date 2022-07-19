@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 
 const Header = ({guitarra}) => {
     const router = useRouter();
-    console.log(router);
     return (
         <header className={styles.header}>
             <div className="contenedor">
@@ -20,6 +19,17 @@ const Header = ({guitarra}) => {
                         <Link href="/nosotros">Nosotros</Link>
                         <Link href="/blog">Blog</Link>
                         <Link href="/tienda">Tienda</Link>
+                        <Link href="/carrito">
+                            <a>
+                                <Image 
+                                    layout='fixed' 
+                                    width={25} 
+                                    height={20} 
+                                    src="/img/carrito.png" 
+                                    alt='Imagen de carrito de compras' 
+                                />
+                            </a>
+                        </Link>
                     </nav>
                 </div>
                 {guitarra && (

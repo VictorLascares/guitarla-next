@@ -56,8 +56,9 @@
 }
 
 
-.formulario input[type="number"] {
+.formulario select {
     border: 2px solid #f6f6f6;
+    background-color: var(--blanco);
     padding: 1rem;
     text-align: center;
 }
