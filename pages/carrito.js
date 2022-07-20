@@ -1,18 +1,56 @@
+import { useAmp } from "next/amp"
 import { useState } from "react"
 import Layout from "../components/Layout"
+import Image from "next/image"
 import styles from "../styles/Carrito.module.css"
 
-const carrito = ({carrito}) => {
+const carrito = ({carrito, actualizarCantidad}) => {
     const [productos, setProductos] = useState([])
-    console.log(carrito);
     return (
         <Layout
             pagina={'Carrito de compras'}
         >
             <h1 className="heading">Carrito</h1>
             <main className={`contenedor ${styles.contenido}`}>
-                <div>
-                    1
+                <div className={styles.carrito}>
+                    {carrito.length === 0 ? 'Carrito Vacio': (
+                        carrito.map(producto => (
+                            <div key={producto.id} className={styles.producto}>
+                                <div>
+                                    <Image layout="responsive" width={250} height={480} src={producto.imagen} alt={`Imagen de guitarra ${producto.nombre}`} />
+                                </div>
+                                <div>
+                                    <p className={styles.nombre}>
+                                        {producto.nombre}
+                                    </p>
+                                    <div className={styles.cantidad}>
+                                        <p>Cantidad: </p>
+                                        <select 
+                                            value={producto.cantidad}
+                                            className={styles.select}
+                                            onChange={e => actualizarCantidad({
+                                                cantidad: e.target.value,
+                                                id: producto.id
+                                            })}
+                                        >
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                    <p className={styles.precio}>
+                                        ${producto.precio}.00
+                                    </p>
+                                    <p className={styles.subtotal}>
+                                        Subtotal:
+                                        <span> ${producto.precio * producto.cantidad}.00</span>
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    )}
                 </div>
                 <div>
                     2
