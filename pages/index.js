@@ -31,9 +31,9 @@ export default function Home({guitars, course, blogs}) {
 }
 
 export async function getServerSideProps() {
-    const guitarsUrl = `${process.env.API_URL}/guitarras?populate=imagen`;
-    const courseUrl = `${process.env.API_URL}/curso?populate=imagen`;
-    const blogsUrl = `${process.env.API_URL}/blogs?populate=imagen&pagination[limit]=3`
+    const guitarsUrl = `${process.env.API_URL}/api/guitarras?populate=imagen`;
+    const courseUrl = `${process.env.API_URL}/api/curso?populate=imagen`;
+    const blogsUrl = `${process.env.API_URL}/api/blogs?populate=imagen&pagination[limit]=3`
     const [resGuitarras, resCursos, resBlogs] = await Promise.all([
         fetch(guitarsUrl),
         fetch(courseUrl),

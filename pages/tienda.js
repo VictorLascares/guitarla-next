@@ -25,7 +25,7 @@ const Tienda = ({ guitars }) => {
 
 
 export async function getServerSideProps() {
-    const url = `${process.env.API_URL}/guitarras?populate=imagen`;
+    const url = `${process.env.API_URL}/api/guitarras?populate=imagen`;
     const response = await fetch(url);
     const guitars = await response.json();
     return {

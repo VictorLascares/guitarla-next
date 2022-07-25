@@ -56,7 +56,7 @@ const GuitarraInput = ({ guitarra, agregarCarrito }) => {
 
 
 export async function getServerSideProps({ query: { url } }) {
-    const urlGuitarra = `${process.env.API_URL}/guitarras?populate=imagen&filters[url][$eq]=${url}`
+    const urlGuitarra = `${process.env.API_URL}/api/guitarras?populate=imagen&filters[url][$eq]=${url}`
     const response = await fetch(urlGuitarra)
     const result = await response.json();
     const guitarra = result.data[0]
