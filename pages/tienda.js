@@ -2,7 +2,7 @@ import styles from '../styles/Tienda.module.css'
 import Layout from "../components/Layout"
 import Guitar from "../components/Guitar";
 
-const tienda = ({ guitars }) => {
+const Tienda = ({ guitars }) => {
     
     return (
         <Layout
@@ -35,4 +35,4 @@ export async function getServerSideProps() {
     }
 }
 
-export default tienda
+export default Tienda

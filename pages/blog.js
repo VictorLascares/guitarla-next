@@ -1,8 +1,7 @@
 import Layout from "../components/Layout"
-import Input from "../components/Input";
 import BlogList from "../components/BlogList";
 
-const blog = ({inputs}) => {
+const Blog = ({inputs}) => {
     return (
         <Layout
             pagina='Blog'
@@ -28,4 +27,4 @@ export async function getServerSideProps() {
     }
 }
 
-export default blog
+export default Blog

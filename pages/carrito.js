@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import Image from "next/image"
 import styles from "../styles/Carrito.module.css"
 
-const carrito = ({carrito, actualizarCantidad, eliminarProducto}) => {
+const Carrito = ({carrito, actualizarCantidad, eliminarProducto}) => {
     const [total, setTotal] = useState(0)
 
     useEffect(() => {
@@ -74,4 +74,4 @@ const carrito = ({carrito, actualizarCantidad, eliminarProducto}) => {
     )
 }
 
-export default carrito
+export default Carrito
